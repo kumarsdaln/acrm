@@ -1,16 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Categories</title>
-</head>
-<body>
-    <div>
-        <a href="">Add Category</a>
-        <div th:each="category:${categories}">
-            <h2 th:text="${category.name}"></h2>
-        </div>
-    </div>
-</body>
+  </head>
+  <body>
+    <a th:href="@{/category/create}">Add Category</a>
+    <table class="table-fixed">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="category:${categories}">
+                <td th:text="${category.name}"></td>
+                <td>
+                    <a th:href="@{/category/{id}/edit(id=${category.id})}">Edit</a>
+                    <a th:href="@{/category/{id}/delete(id=${category.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </body>
 </html>
