@@ -31,14 +31,14 @@ public class CategoryController {
 
     @GetMapping("category/create")
     public String createCategory(Model model){
-        model.addAttribute("caretogyRequest", new CategoryRequest());
+        model.addAttribute("categoryRequest", new CategoryRequest());
         return "category/create";
     }
 
     @PostMapping("category/store")
     public String createCategory(
         @Valid 
-        @ModelAttribute("caretogyRequest")
+        @ModelAttribute("categoryRequest")
         CategoryRequest request,
         BindingResult result){
 
@@ -70,7 +70,7 @@ public class CategoryController {
     @PostMapping("category/update")
     public String updateCategory(
         @Valid
-        @ModelAttribute("caretogyRequest")
+        @ModelAttribute("categoryRequest")
         CategoryRequest request, 
         BindingResult result)
     {
