@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Login</title>
 </head>
 <body>
     <form 
-    th:action="@{/register}" 
-    th:object="${registerRequest}"
+    th:action="@{/login}" 
+    th:object="${loginRequest}"
     method="post">
         <div>
-            <label>Name</label>
-            <input type="text" th:field="*{name}">
-            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
-        </div>
-        <div>
-            <label>Email</label>
-            <input type="email" th:field="*{email}">
-            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            <label>Username</label>
+            <input type="username" th:field="*{username}">
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
         </div>
 
         <div>
