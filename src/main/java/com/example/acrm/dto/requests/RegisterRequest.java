@@ -1,16 +1,27 @@
 package com.example.acrm.dto.requests;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class RegisterRequest{
-    @NotBlank(message="Name is Required")
+public class RegisterRequest {
+
+    @NotBlank(message="Name is required")
+    @Size(min=2, max=200, message="Name must be between 2 and 200 characters")
     private String name;
+    
+    @NotBlank(message="Email is required")
+    @Size(min=2, max=200, message="Email must be between 2 and 200 characters")
+    @Email(message="Invalid Email")
+    private String email;
 
-    @NotBlank(message="Email is Required")
-    private  String email;
+    @NotBlank(message="Username is required")
+    @Size(min=2, max=200, message="Username must be between 2 and 200 characters")
+    private String username;
 
-    @NotBlank(message="Password is Required")
-    private String Password;
+    @NotBlank(message="Password is required")
+    @Size(min=8, max=30, message="Password must be between 8 and 30 characters")
+    private String password;
 }
